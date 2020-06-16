@@ -18,7 +18,7 @@ $(document).ready(
     );
 
     // Quando il tasto si abbassa appende 'INPUT' nel area dei messaggi.
-    $(document).keydown(
+    $('.write-message input').keydown(
       function(event){
         if(event.which=='13'){
         var message = $('.write-message input').val()
