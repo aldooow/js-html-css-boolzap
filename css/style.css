@@ -1,0 +1,128 @@
+/* BEGIN RESET */
+* {
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* END RESET */
+
+/* General Settings */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(180deg, #049687 15%, #d7dbd7 15%);
+}
+input {
+  margin-left: 20px;
+  width: 80%;
+  border: none;
+  outline: none;
+}
+/* END General Settings */
+
+/* Istrumenti */
+div[class*="-bar"] {
+  display: flex;
+  justify-content: space-between;
+  background: #eaeaea;
+  border: 1px solid #dadada;
+  width: 100%;
+  height: 60px;
+  padding: 8px;
+}
+div[class*="-bar"] img {
+  height: 100%;
+  border-radius: 50%;
+}
+.options {
+  font-size: 25px;
+  padding-top: 10px;
+  color: #b1b1b1;
+}
+.img-avatar {
+  width: 60px;
+}
+/* END Istrumenti */
+
+.wrapper-whatsapp {
+  display: flex;
+  background: yellow;
+  height: 95vh;
+  width: 1024px;
+  margin: 2.5vh auto;
+}
+/** Colonna sinistra **/
+.wrapper-whatsapp .col-left {
+  background: lightgreen;
+  height: 100%;
+  width: 350px;
+}
+/* Notifications */
+.wrapper-whatsapp .col-left .notifications {
+  display: flex;
+  background: #8ddafb;
+  width: 100%;
+  height: 80px;
+  padding: 10px;
+}
+.wrapper-whatsapp .col-left .notifications .notifications-icon {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background: white;
+  border-radius: 50%;
+}
+.wrapper-whatsapp .col-left .notifications .notifications-icon i {
+  color: #8ddafb;
+  font-size: 25px;
+  position: absolute;
+  left: 10px;
+  bottom: 15px;
+}
+.wrapper-whatsapp .col-left .notifications .notifications-message {
+  line-height: 20px;
+  padding: 10px 0px 0px 10px;
+}
+/* Search */
+.wrapper-whatsapp .col-left .search {
+  padding-top: 10px;
+  background: #eaeaea;
+  width: 100%;
+  height: 50px;
+}
+.wrapper-whatsapp .col-left .search .wrapper-search {
+  padding: 5px 10px;
+  background: white;
+  width: 94%;
+  margin: auto;
+}
+.wrapper-whatsapp .col-left .search .wrapper-search i {
+  color: #b1b1b1;
+}
+
+/* Contacts */
+.contacts {
+  background: white;
+  width: 100%;
+  height: calc(100% - 190px);
+}
+/* END Colonna destra */
+
+/* Colonna sinistra */
+.col-right {
+  background: lightblue;
+  height: 100%;
+  width: calc(100% - 350px);
+}
+.container-message {
+  background: url(../img/mine.jpg);
+  background-repeat: repeat;
+  width: 100%;
+  height: calc(100% - 120px)
+}
+.write-message {
+  border-radius: 5px;
+  padding-top: 10px;
+  background: #ffff;
+  width: 80%;
+}
+/* END Colonna sinistra */
