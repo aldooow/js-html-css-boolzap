@@ -24,8 +24,10 @@ a {
 
 /* Istrumenti */
 div[class*="-bar"] {
+  background: #eaeaea;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background: #eaeaea;
   border: 1px solid #dadada;
   width: 100%;
@@ -33,31 +35,30 @@ div[class*="-bar"] {
   padding: 8px;
 }
 div[class*="-bar"] img {
-  height: 100%;
+  height: 50px;
   border-radius: 50%;
 }
 div[class*="message-"] {
+  background: pink;
   border-radius: 10px;
   width: 300px;
-  background: pink;
   padding: 15px;
   margin: 5px 0;
 }
 .options i {
+  color: #b1b1b1;
   font-size: 20px;
   padding: 5px;
-  color: #b1b1b1;
 }
 .img-avatar {
-  width: 230px;
   display: flex;
 }
 /* END Istrumenti */
 
 /** Container Principale **/
 .wrapper-whatsapp {
-  display: flex;
   background: yellow;
+  display: flex;
   height: 95vh;
   width: 1024px;
   margin: 2.5vh auto;
@@ -72,17 +73,19 @@ div[class*="message-"] {
 }
 /* Notifications */
 .wrapper-whatsapp .col-left .notifications {
-  display: flex;
   background: #8ddafb;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   width: 100%;
   height: 80px;
-  padding: 10px;
+  padding-left: 15px;
 }
 .wrapper-whatsapp .col-left .notifications .notifications-icon {
+  background: white;
   position: relative;
   width: 50px;
   height: 50px;
-  background: white;
   border-radius: 50%;
 }
 .wrapper-whatsapp .col-left .notifications .notifications-icon i {
@@ -99,16 +102,16 @@ div[class*="message-"] {
 }
 /* Search */
 .wrapper-whatsapp .col-left .search {
-  padding-top: 10px;
   background: #fafafa;
+  padding-top: 10px;
   width: 100%;
   height: 50px;
 }
 .wrapper-whatsapp .col-left .search .wrapper-search {
+  background: white;
   border-radius: 2px;
   border: 1px solid #f6f6f6;
   padding: 5px 10px;
-  background: white;
   width: 94%;
   margin: auto;
 }
@@ -118,16 +121,16 @@ div[class*="message-"] {
 
 /* Box-Contacts */
 .wrapper-whatsapp .col-left .box-contacts {
-  overflow-y: scroll;
   background: white;
+  overflow-y: scroll;
   width: 100%;
   height: calc(100% - 190px);
 }
 .wrapper-whatsapp .col-left .box-contacts .contact {
-  font-size: 15px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  font-size: 15px;
   width: 100%;
   height: 80px;
   border: 1px solid #e8ebeb;
@@ -167,18 +170,18 @@ div[class*="message-"] {
   width: 100%;
   height: calc(100% - 120px)
 }
-.wrapper-message {
+.wrapper-whatsapp .col-right .container-message .wrapper-message {
   width: 85%;
   margin: auto;
   height: 100%;
 }
-.wrapper-message .message-he {
-  float: left;
+.wrapper-whatsapp .col-right .container-message .wrapper-message .message-he {
   background: #ffff;
+  float: left;
 }
-.wrapper-message .message-me {
-  float: right;
+.wrapper-whatsapp .col-right .container-message .wrapper-message .message-me {
   background: #d5f9ba;
+  float: right;
 }
 
 .wrapper-whatsapp .col-right div.footer-bar-message {
@@ -186,14 +189,15 @@ div[class*="message-"] {
 }
 .wrapper-whatsapp .col-right .footer-bar-message .emoticons,
 .wrapper-whatsapp .col-right .footer-bar-message .vocal-audio {
-  padding-top: 10px;
   color: #6b7376;
+  padding-top: 10px;
   font-size: 25px;
 }
 .wrapper-whatsapp .col-right .footer-bar-message .write-message {
+  background: #ffff;
   border-radius: 5px;
   padding-top: 10px;
-  background: #ffff;
   width: 80%;
+  height: 40px;
 }
 /* END COLONNA DESTRA */
