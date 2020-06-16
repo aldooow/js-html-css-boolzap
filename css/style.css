@@ -36,6 +36,13 @@ div[class*="-bar"] img {
   height: 100%;
   border-radius: 50%;
 }
+div[class*="message-"] {
+  border-radius: 10px;
+  width: 300px;
+  background: pink;
+  padding: 15px;
+  margin: 5px 0;
+}
 .options i {
   font-size: 20px;
   padding: 5px;
@@ -111,14 +118,34 @@ div[class*="-bar"] img {
 
 /* Box-Contacts */
 .wrapper-whatsapp .col-left .box-contacts {
+  overflow-y: scroll;
   background: white;
   width: 100%;
   height: calc(100% - 190px);
 }
-.contact {
+.wrapper-whatsapp .col-left .box-contacts .contact {
+  font-size: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   width: 100%;
   height: 80px;
   border: 1px solid #e8ebeb;
+}
+.wrapper-whatsapp .col-left .box-contacts .contact p {
+  color: #b1b1b1;
+}
+.wrapper-whatsapp .col-left .box-contacts .contact .img-contact  {
+  background: red;
+  height: 60px;
+  width: 60px;
+}
+.wrapper-whatsapp .col-left .box-contacts .contact .img-contact img {
+  border-radius: 50%;
+  width: 100%;
+}
+.wrapper-whatsapp .col-left .box-contacts .contact .time-contact {
+  font-size: 10px;
 }
 
 /* END COLONNA SINISTRA */
@@ -134,21 +161,36 @@ div[class*="-bar"] img {
   font-size: 12px;
 }
 .wrapper-whatsapp .col-right .container-message {
+  overflow-y: scroll;
   background: url(../img/mine.jpg);
   background-repeat: repeat;
   width: 100%;
   height: calc(100% - 120px)
 }
-.wrapper-whatsapp .col-right div.footer-message-bar {
+.wrapper-message {
+  width: 85%;
+  margin: auto;
+  height: 100%;
+}
+.wrapper-message .message-he {
+  float: left;
+  background: #ffff;
+}
+.wrapper-message .message-me {
+  float: right;
+  background: #d5f9ba;
+}
+
+.wrapper-whatsapp .col-right div.footer-bar-message {
   justify-content: space-around;
 }
-.wrapper-whatsapp .col-right .footer-message-bar .emoticons,
-.wrapper-whatsapp .col-right .footer-message-bar .vocal-audio {
+.wrapper-whatsapp .col-right .footer-bar-message .emoticons,
+.wrapper-whatsapp .col-right .footer-bar-message .vocal-audio {
   padding-top: 10px;
   color: #6b7376;
   font-size: 25px;
 }
-.wrapper-whatsapp .col-right .footer-message-bar .write-message {
+.wrapper-whatsapp .col-right .footer-bar-message .write-message {
   border-radius: 5px;
   padding-top: 10px;
   background: #ffff;
