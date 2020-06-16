@@ -7,6 +7,11 @@
 /* END RESET */
 
 /* General Settings */
+  /* TEMPLATE */
+  .template {
+    display: none;
+  }
+  /* TEMPLATE */
 body {
   font-family: 'Roboto', sans-serif;
   background: linear-gradient(180deg, #049687 15%, #d7dbd7 15%);
@@ -22,7 +27,7 @@ a {
 }
 /* END General Settings */
 
-/* Istrumenti */
+/* strumenti */
 div[class*="-bar"] {
   background: #eaeaea;
   display: flex;
@@ -53,7 +58,7 @@ div[class*="message-"] {
 .img-avatar {
   display: flex;
 }
-/* END Istrumenti */
+/* END strumenti */
 
 /** Container Principale **/
 .wrapper-whatsapp {
@@ -183,7 +188,6 @@ div[class*="message-"] {
   background: #d5f9ba;
   float: right;
 }
-
 .wrapper-whatsapp .col-right div.footer-bar-message {
   justify-content: space-around;
 }
