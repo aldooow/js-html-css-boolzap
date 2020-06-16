@@ -44,7 +44,7 @@ $(document).ready(
           template.text(messageFriends[numeroRandon])
           $('.wrapper-message').append(template);
           // Reset Value
-        }, 2000);
+        }, 1000);
         /******/
       }
     );
@@ -69,7 +69,7 @@ $(document).ready(
           template.text(messageFriends[numeroRandon])
           $('.wrapper-message').append(template);
           // Reset Value
-        }, 2000);
+        }, 1000);
         /******/
         }
        }
