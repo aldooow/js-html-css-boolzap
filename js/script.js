@@ -1,28 +1,29 @@
 $(document).ready(
-
   function(){
 
 
-    /**/
+
+    /*********** SEARCH ************/
+    // Quando faccio "CLICK" sul 'INPUT' di SEARCH,
     $('#js_search').on("keyup", function() {
+      // e inserisco una Parola,
       var value = $(this).val().toUpperCase();
-      console.log(value);
-
-
+      // viene confrontata con ogni parola dentro un H4 appartenente al div.box-contact.
       $('.box-contact h4').each(
         function() {
+          // Se dentro il testo, fosse inclusa la parola che ho inserito,
           if($(this).text().toUpperCase().includes(value)){
+            // lascio in vista in div.contact,
             $(this).parents('.contact').show();
           } else {
+            // altrementi nascondo il div.contact.
             $(this).parents('.contact').hide();
           }
-        // $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-
       });
     });
-    /**/
     /*********************************/
 
+    /************ MESSAGE **************/
     /* Risposte Automatiche */
     var messagesReceived = [
       'Tutto Ok, dai!!',
@@ -36,15 +37,10 @@ $(document).ready(
       'Sicuro???'
     ];
 
-
-
       // Quando faccio "CLICK", si appende il 'INPUT' nel area dei messaggi.
     $('#js_enter').click(
       function(){
-
         sendMessage();
-
-        /******/
       }
     );
 
@@ -52,15 +48,11 @@ $(document).ready(
     $('.write-message input').keydown(
       function(event){
         if(event.which=='13'){
-
         sendMessage();
-
-        /******/
         }
        }
      );
-
-
+     /*********************************/
 
      /*FUNZIONI*/
 
@@ -115,11 +107,10 @@ $(document).ready(
      }
 
 
-
      /*END FUNZIONI*/
 
 
-    /*********************************/
+
   }
 
 );
