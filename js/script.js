@@ -1,7 +1,26 @@
 $(document).ready(
 
-
   function(){
+
+
+    /**/
+    $('#js_search').on("keyup", function() {
+      var value = $(this).val().toUpperCase();
+      console.log(value);
+
+
+      $('.box-contact h4').each(
+        function() {
+          if($(this).text().toUpperCase().includes(value)){
+            $(this).parents('.contact').show();
+          } else {
+            $(this).parents('.contact').hide();
+          }
+        // $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+
+      });
+    });
+    /**/
     /*********************************/
 
     /* Risposte Automatiche */
@@ -24,9 +43,6 @@ $(document).ready(
       function(){
 
         sendMessage();
-        /* Vissualizare ultimo messaggio */
-        $('.container-message').scrollTop($('.container-message').height());
-
 
         /******/
       }
@@ -38,9 +54,6 @@ $(document).ready(
         if(event.which=='13'){
 
         sendMessage();
-        /* Vissualizare ultimo messaggio */
-        $('.container-message').scrollTop($('.container-message').height());
-
 
         /******/
         }
@@ -57,6 +70,7 @@ $(document).ready(
          var numero = Math.round(Math.random()*(array.length-1));
          return numero;
        }
+
    //  FUNCTION: addZeroToNumber(): Questa funzione aggiunge uno zero da vanti a un numero menore di 10.
      function addZeroToNumber(number){
        if(number < 10) {
@@ -64,7 +78,6 @@ $(document).ready(
        }
        return number;
      }
-
 
    //  FUNCTION: sendMessage(): Questa funzione contiene il messaggio da inviare, e l'ora del messagio. C'e anche  una risposta automatica.
      function sendMessage(){
@@ -84,6 +97,9 @@ $(document).ready(
        // Reset Value
        $('.write-message input').val('');
 
+       /* Vissualizare ultimo messaggio */
+       $('.container-message').scrollTop($('.container-message').height());
+
        /*** Risposta Automatica dopo 1 secondi ***/
        setTimeout(function(){
          var numeroRandon = creaNumeroRandom(messagesReceived);
@@ -92,7 +108,9 @@ $(document).ready(
 
          template.children('.box-left').html(messagesReceived[numeroRandon] + '<span class="message-hour">' + currentTime + '</span>');
          $('.wrapper-message').append(template);
-         // Reset Value
+
+         /* Vissualizare ultimo messaggio */
+         $('.container-message').scrollTop($('.container-message').height());
        }, 1000);
      }
 
