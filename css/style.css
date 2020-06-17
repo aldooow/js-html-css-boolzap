@@ -43,13 +43,6 @@ div[class*="-bar"] img {
   height: 50px;
   border-radius: 50%;
 }
-div[class*="message-"] {
-  background: pink;
-  border-radius: 10px;
-  width: 300px;
-  padding: 15px;
-  margin: 5px 0;
-}
 .options i {
   color: #b1b1b1;
   font-size: 20px;
@@ -66,6 +59,7 @@ div[class*="message-"] {
   display: flex;
   height: 95vh;
   width: 1024px;
+  min-width: 900px;
   margin: 2.5vh auto;
 }
 /** END Container Principale **/
@@ -180,14 +174,42 @@ div[class*="message-"] {
   margin: auto;
   height: 100%;
 }
-.wrapper-whatsapp .col-right .container-message .wrapper-message .message-he {
-  background: #ffff;
+/* message */
+div[class*="message-"] div[class*="box-"] {
+  position: relative;
+  border-radius: 10px;
+  padding: 15px 30px 15px 15px;
+  margin: 5px 0;
+  display: inline-block;
+  word-break: break-all;
+}
+div[class*="message-"] {
+  clear: both;
+  max-width: 80%;
+}
+.wrapper-whatsapp .col-right .container-message .wrapper-message .message-left {
   float: left;
 }
-.wrapper-whatsapp .col-right .container-message .wrapper-message .message-me {
+.box-left {
+  background: white;
+  float: left;
+}
+.wrapper-whatsapp .col-right .container-message .wrapper-message .message-right {
+  float: right;
+}
+.box-right {
   background: #d5f9ba;
   float: right;
 }
+.message-hour {
+  position: absolute;
+  color: #b1b1b1;
+  display: block;
+  font-size: 10px;
+  right: 4px;
+  bottom: 4px;
+}
+/* END message */
 .wrapper-whatsapp .col-right div.footer-bar-message {
   justify-content: space-around;
 }
