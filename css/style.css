@@ -28,6 +28,9 @@ a {
 /* END General Settings */
 
 /* strumenti */
+.hidden {
+  display: none;
+}
 div[class*="-bar"] {
   background: #eaeaea;
   display: flex;
