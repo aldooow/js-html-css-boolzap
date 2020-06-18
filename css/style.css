@@ -25,6 +25,9 @@ input {
 a {
   color: #6497ac;
 }
+li {
+  list-style-type: none;
+}
 /* END General Settings */
 
 /* strumenti */
@@ -187,6 +190,7 @@ div[class*="message-"] div[class*="box-"] {
   word-break: break-all;
 }
 div[class*="message-"] {
+  position: relative;
   clear: both;
   max-width: 80%;
 }
@@ -230,3 +234,46 @@ div[class*="message-"] {
   height: 40px;
 }
 /* END COLONNA DESTRA */
+
+
+.message-left .settings-message {
+  right: -90px;
+}
+.message-left .icon-settings-message {
+  color: #ffff;
+  right: 10px;
+}
+/*  */
+.message-right .settings-message {
+  left: -90px;
+}
+.message-right .icon-settings-message {
+  color: #d5f9ba;
+  left: 10px;
+}
+/* Comuni */
+.settings-message {
+  display: none; /* <<<<<<------Serve per debug */
+  font-size: 12px;
+  top: 25px;
+  position: absolute;
+  padding: 10px;
+  border-radius: 5px;
+  border: 0.5px solid #b1b1b1;
+  box-shadow: 3px 3px 5px -2px rgba(0,0,0,0.75);
+  background: #ffff;
+}
+.icon-settings-message {
+  position: absolute;
+  top: 5px;
+}
+.icon-settings-message:hover {
+  color: #b1b1b1;
+}
+.active {
+  display: block;
+}
+.js_delete-message a {
+  color: black;
+  text-decoration: none;
+}

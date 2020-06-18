@@ -1,20 +1,23 @@
 $(document).ready(
   function(){
 
-/***/ /***/ /***/ /***/ /***/
+activeSettingsMessages()
 
-/***/ /***/ /***/ /***/ /***/
-
+$('.js_delete-message').click(
+  function(){
+  $(this).parents('.js_msg').addClass('hidden')
+}
+);
     /*********** SEARCH ************/
     // Quando faccio "CLICK" sul 'INPUT' di SEARCH,
     $('#js_search').on("keyup", function() {
       // e inserisco una Parola,
-      var value = $(this).val().toUpperCase();
+      var value = $(this).val().toLowerCase();
       // viene confrontata con ogni parola dentro un H4 appartenente al div.box-contact.
       $('.box-contact h4').each(
         function() {
           // Se dentro il testo, fosse inclusa la parola che ho inserito,
-          if($(this).text().toUpperCase().includes(value)){
+          if($(this).text().toLowerCase().includes(value)){
             // lascio in vista in div.contact,
             $(this).parents('.contact').show();
           } else {
@@ -43,6 +46,7 @@ $(document).ready(
     $('#js_enter').click(
       function(){
         sendMessage();
+
       }
     );
 
@@ -55,6 +59,7 @@ $(document).ready(
        }
      );
      /*********************************/
+
 
      /*FUNZIONI*/
 
@@ -75,7 +80,7 @@ $(document).ready(
 
    //  FUNCTION: sendMessage(): Questa funzione contiene il messaggio da inviare, e l'ora del messagio. C'e anche  una risposta automatica.
      function sendMessage(){
-       var message = $('.write-message input').val()
+       var message = $('.write-message input').val();
        var template = $('.template').find('.message-right').clone();
        // console.log(template)
 
@@ -86,7 +91,8 @@ $(document).ready(
        var currentTime = addZeroToNumber(currentHours) + ':' + addZeroToNumber(currentMinutes);
        template.find('.message-hour').text(currentTime);
 
-       template.children('.box-right').html(message + '<span class="message-hour">' + currentTime + '</span>');
+       template.find('.box-right p').text(message);
+
        $('.wrapper-message').append(template);
        // Reset Value
        $('.write-message input').val('');
@@ -96,15 +102,19 @@ $(document).ready(
 
        /*** Risposta Automatica dopo 1 secondi ***/
        setTimeout(function(){
+
          var numeroRandon = creaNumeroRandom(messagesReceived);
          var template = $('.template').find('.message-left').clone();
          // console.log(template)
 
-         template.children('.box-left').html(messagesReceived[numeroRandon] + '<span class="message-hour">' + currentTime + '</span>');
+         template.find('.box-left p').text(messagesReceived[numeroRandon]);
+         template.find('.message-hour').text(currentTime);
          $('.wrapper-message').append(template);
 
          /* Vissualizare ultimo messaggio */
          $('.container-message').scrollTop($('.container-message').height());
+
+
        }, 1000);
      }
 
@@ -116,3 +126,19 @@ $(document).ready(
   }
 
 );
+
+/***/ /***/ /***/ /***/ /***/
+function activeSettingsMessages(){
+  $('.icon-settings-message').click(
+    function(){
+      $(this).parents().siblings('.settings-message').toggleClass('active');
+      $(this).parents().parents().siblings().find('.settings-message').removeClass('active')
+
+    }
+  );
+}
+
+
+
+
+/***/ /***/ /***/ /***/ /***/
