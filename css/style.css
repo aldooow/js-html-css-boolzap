@@ -34,6 +34,10 @@ li {
 .hidden {
   display: none;
 }
+.active {
+  display: block;
+}
+
 div[class*="-bar"] {
   background: #eaeaea;
   display: flex;
@@ -70,7 +74,7 @@ div[class*="-bar"] img {
 }
 /** END Container Principale **/
 
-/* COLONNA SINISTRA */
+/******* COLONNA SINISTRA ***********/
 .wrapper-whatsapp .col-left {
   background: lightgreen;
   height: 100%;
@@ -156,9 +160,9 @@ div[class*="-bar"] img {
   font-size: 10px;
 }
 
-/* END COLONNA SINISTRA */
+/********** END COLONNA SINISTRA *********/
 
-/* COLONNA DESTRA */
+/********** COLONNA DESTRA **************/
 .wrapper-whatsapp .col-right {
   background: lightblue;
   height: 100%;
@@ -193,6 +197,45 @@ div[class*="message-"] {
   position: relative;
   clear: both;
   max-width: 80%;
+}
+.message-left .settings-message {
+  right: -90px;
+}
+.message-left .icon-settings-message {
+  color: #ffff;
+  right: 10px;
+}
+.message-right .settings-message {
+  left: -90px;
+}
+.message-right .icon-settings-message {
+  color: #d5f9ba;
+  left: 10px;
+}
+.settings-message {
+  display: none; /* <<<<<<------Serve per debug */
+  font-size: 12px;
+  top: 25px;
+  position: absolute;
+  padding: 10px;
+  border-radius: 5px;
+  border: 0.5px solid #b1b1b1;
+  box-shadow: 3px 3px 5px -2px rgba(0,0,0,0.75);
+  background: #ffff;
+}
+.settings-message.active {
+  display: block;
+}
+.icon-settings-message {
+  position: absolute;
+  top: 5px;
+}
+.icon-settings-message:hover {
+  color: #b1b1b1;
+}
+.js_delete-message a {
+  color: black;
+  text-decoration: none;
 }
 .wrapper-whatsapp .col-right .container-message .wrapper-message .message-left {
   float: left;
@@ -233,47 +276,4 @@ div[class*="message-"] {
   width: 80%;
   height: 40px;
 }
-/* END COLONNA DESTRA */
-
-
-.message-left .settings-message {
-  right: -90px;
-}
-.message-left .icon-settings-message {
-  color: #ffff;
-  right: 10px;
-}
-/*  */
-.message-right .settings-message {
-  left: -90px;
-}
-.message-right .icon-settings-message {
-  color: #d5f9ba;
-  left: 10px;
-}
-/* Comuni */
-.settings-message {
-  display: none; /* <<<<<<------Serve per debug */
-  font-size: 12px;
-  top: 25px;
-  position: absolute;
-  padding: 10px;
-  border-radius: 5px;
-  border: 0.5px solid #b1b1b1;
-  box-shadow: 3px 3px 5px -2px rgba(0,0,0,0.75);
-  background: #ffff;
-}
-.icon-settings-message {
-  position: absolute;
-  top: 5px;
-}
-.icon-settings-message:hover {
-  color: #b1b1b1;
-}
-.active {
-  display: block;
-}
-.js_delete-message a {
-  color: black;
-  text-decoration: none;
-}
+/************ END COLONNA DESTRA **************/
