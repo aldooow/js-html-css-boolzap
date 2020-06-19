@@ -1,9 +1,33 @@
 $(document).ready(
   function(){
 
+    // FINESTRA MESSAGI.
+    // Quando faccio CLICK sulla icona sui messagi, faccio apparire una finestra con delle opzioni.
+    $(document).on('click', '.icon-settings-message',
+      function(){
+        $(this).parents().siblings('.settings-message').toggleClass('active');
+        $(this).parents().parents().siblings().find('.settings-message').removeClass('active')
+        // Quando faccio CLICK sulla opzione DELETE, cancello il messaggio.
+        $('.js_delete-message').click(
+          function(){
+          $(this).parents('.js_msg').addClass('hidden');
+        }
+        );
+      }
+    );
+
+
+    // FINESTRA CONTATTI.
+    // Quando faccio CLICK su un contatto, si apri il suo box-chat.
     $('.box-contacts .contact').click(
           function() {
-            // Seleziono dati dell'utente su quale clicco
+
+            var contact = $(this).attr('src');
+            $('.container-message').removeClass('active');
+            var selettore = '.container-message[src-msg="' + contact + '"]'
+            $(selettore).addClass('active')
+
+            // Faccio vedere gli stessi dati del contatto sopra la chat-box.
               //--> Avatar del contatto.
             var contactAvatar = $(this).find('img').attr('src');
               //--> Nome del contatto.
@@ -20,17 +44,8 @@ $(document).ready(
             var currentContactLastTimeSeen = $('.header-contact-bar').find('.ultimo-accesso p').text('ulimo accesso oggi alle ' + contactLastTimeSeen);
         });
 
-  activeSettingsMessages();
 
-  $('.box-contacts .contact').click(function(){
-    var contact = $(this).attr('src');
-    $('.container-message').addClass('hidden');
-    var selettore = '.container-message[src-msg="' + contact + '"]'
-    $(selettore).removeClass('hidden')
-  });
-
-
-    /*********** SEARCH ************/
+    // SEARCH.
     // Quando faccio "CLICK" sul 'INPUT' di SEARCH,
     $('#js_search').on("keyup", function() {
       // e inserisco una Parola,
@@ -48,9 +63,8 @@ $(document).ready(
           }
       });
     });
-    /*********************************/
 
-    /************ MESSAGE **************/
+    // MESSAGE.
       // Quando faccio "CLICK", si appende il 'INPUT' nel area dei messaggi.
     $('#js_enter').click(
       function(){
@@ -68,8 +82,6 @@ $(document).ready(
         }
        }
      );
-     /*********************************/
-
 
      /*FUNZIONI*/
 
@@ -105,7 +117,7 @@ $(document).ready(
 
        template.find('.box-right p').text(message);
 
-       $('.wrapper-message').append(template);
+       $('.container-message.active').append(template);
        // Reset Value
        $('.write-message input').val('');
 
@@ -141,32 +153,15 @@ $(document).ready(
 
          template.find('.box-left p').text(messagesReceived[numeroRandon]);
 
-         $('.wrapper-message').append(template);
+         $('.container-message.active').append(template);
 
          /* Vissualizare ultimo messaggio */
          $('.container-message').scrollTop($('.container-message').height());
        }, 1000);
      }
 
-     //  FUNCTION: activeSettingsMessages(): Questa Funzione attiva le impostazioni dei messaggi, e ti da la opzione di eliminare il messagio.
-     function activeSettingsMessages(){
-       $('.icon-settings-message').click(
-         function(){
-           $(this).parents().siblings('.settings-message').toggleClass('active');
-           $(this).parents().parents().siblings().find('.settings-message').removeClass('active')
-
-           $('.js_delete-message').click(
-             function(){
-             $(this).parents('.js_msg').addClass('hidden');
-           }
-           );
-         }
-       );
-     }
 
      /*END FUNZIONI*/
-
-
 
   }
 );
