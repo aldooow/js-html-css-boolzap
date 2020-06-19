@@ -1,6 +1,8 @@
 $(document).ready(
   function(){
 
+
+
     // FINESTRA MESSAGI.
     // Quando faccio CLICK sulla icona sui messagi, faccio apparire una finestra con delle opzioni.
     $(document).on('click', '.icon-settings-message',
@@ -44,7 +46,8 @@ $(document).ready(
               //--> Sostituisco Nome del contatto.
             var currentContactName = $('.header-contact-bar').find('h4').text(contactName);
               //--> Sostituisco Vissualizazione orario contatto.
-            var currentContactLastTimeSeen = $('.header-contact-bar').find('.ultimo-accesso p').text('ulimo accesso oggi alle ' + contactLastTimeSeen);
+            var currentContactLastTimeSeen = $('.header-contact-bar').find('.last-access p').text('ulimo accesso oggi alle ' + contactLastTimeSeen);
+
         });
 
 
@@ -68,11 +71,20 @@ $(document).ready(
     });
 
     // MESSAGE.
+    //  Quando faccio CLICK sulla INPUT si vede il bottone INVIA e sparisce la VOICE.
+    $('.write-message input').click( function(){
+      $('#js_enter').removeClass('hidden');
+      $('#js_voice').addClass('hidden');
+    });
+
       // Quando faccio "CLICK", si appende il 'INPUT' nel area dei messaggi.
     $('#js_enter').click(
       function(){
         sendMessage();
         replyMessage();
+        // RESET:: Quando invio il messagio sparisce il bottone INVIA e torna la VOICE.
+        $('#js_enter').addClass('hidden');
+        $('#js_voice').removeClass('hidden');
       });
 
     // Quando il tasto si abbassa appende 'INPUT' nel area dei messaggi.
@@ -108,10 +120,15 @@ $(document).ready(
 
        /* Vissualizare ultimo messaggio */
        $('.container-message').scrollTop($('.container-message').height());
+
+
      }
 
      //  FUNCTION: replyMessage(): Questa funzione genera una risposta automatica dopo 1 sec.
      function replyMessage(){
+        // Mentre aspetta il messaggio di risposta far vedre nella HEADER CONTACT BAR un messaggio..
+        $('.header-contact-bar').find('.last-access p').text('sta scrivendo un messagio...');
+
        setTimeout(function(){
          /* Risposte Automatiche */
          var messagesReceived = [
@@ -143,7 +160,15 @@ $(document).ready(
 
          /* Vissualizare ultimo messaggio */
          $('.container-message').scrollTop($('.container-message').height());
-         
+
+         // Dopo che a risposto con un messagio far apparire nella HEADER CONTACT BAR questo messaggio.
+         $('.header-contact-bar').find('.last-access p').text('ultimo accesso oggi alle ' + currentTime);
+
+         // L'orario del TIME CONTACT deve essere uguale al orario del ultimo messagio ricevuto.
+         $('.contact.selected').find('.time-contact p').text(currentTime);
+
+         $('.contact.selected').find('.box-contact p').text(messagesReceived[numeroRandon]);
+
        }, 1000);
      }
 

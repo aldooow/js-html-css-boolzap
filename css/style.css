@@ -150,14 +150,21 @@ div[class*="-bar"] img {
 .wrapper-whatsapp .col-left .box-contacts .contact p {
   color: #b1b1b1;
 }
+.wrapper-whatsapp .col-left .box-contacts .contact {
+  width: 100%;
+}
 .wrapper-whatsapp .col-left .box-contacts .contact .img-contact  {
   background: red;
   height: 60px;
   width: 60px;
 }
+.wrapper-whatsapp .col-left .box-contacts .contact .box-contact {
+  width: calc(100% - 120px);
+}
 .wrapper-whatsapp .col-left .box-contacts .contact .img-contact img {
   border-radius: 50%;
   width: 100%;
+  width: 60px;
 }
 .wrapper-whatsapp .col-left .box-contacts .contact .time-contact {
   font-size: 10px;
@@ -269,7 +276,8 @@ div[class*="message-"] {
   justify-content: space-around;
 }
 .wrapper-whatsapp .col-right .footer-bar-message .emoticons,
-.wrapper-whatsapp .col-right .footer-bar-message .vocal-audio {
+.wrapper-whatsapp .col-right .footer-bar-message .vocal-audio,
+.enter-button {
   color: #6b7376;
   padding-top: 10px;
   font-size: 25px;
@@ -280,5 +288,8 @@ div[class*="message-"] {
   padding-top: 10px;
   width: 80%;
   height: 40px;
+}
+.hidden {
+  display: none;
 }
 /************ END COLONNA DESTRA **************/
