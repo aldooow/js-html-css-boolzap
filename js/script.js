@@ -121,6 +121,10 @@ $(document).ready(
        /* Vissualizare ultimo messaggio */
        $('.container-message').scrollTop($('.container-message').height());
 
+       // L'orario e il testo  del TIME CONTACT si vedono anche nel BOX CONTACT.
+       $('.contact.selected').find('.time-contact p').text(currentTime);
+       $('.contact.selected').find('.box-contact p').html('<i class="fas fa-check"></i> ' + message);
+
 
      }
 
@@ -164,9 +168,8 @@ $(document).ready(
          // Dopo che a risposto con un messagio far apparire nella HEADER CONTACT BAR questo messaggio.
          $('.header-contact-bar').find('.last-access p').text('ultimo accesso oggi alle ' + currentTime);
 
-         // L'orario del TIME CONTACT deve essere uguale al orario del ultimo messagio ricevuto.
+         // L'orario e il testo  del TIME CONTACT si vedono anche nel BOX CONTACT.
          $('.contact.selected').find('.time-contact p').text(currentTime);
-
          $('.contact.selected').find('.box-contact p').text(messagesReceived[numeroRandon]);
 
        }, 1000);

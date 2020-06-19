@@ -292,4 +292,8 @@ div[class*="message-"] {
 .hidden {
   display: none;
 }
+
+.fas.fa-check {
+  color: blue;
+}
 /************ END COLONNA DESTRA **************/
