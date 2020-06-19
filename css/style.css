@@ -58,7 +58,7 @@ div[class*="-bar"] img {
   font-size: 20px;
   padding: 5px;
 }
-.img-avatar {
+.box-avatar {
   display: flex;
 }
 /* END strumenti */
@@ -144,6 +144,9 @@ div[class*="-bar"] img {
   height: 80px;
   border: 1px solid #e8ebeb;
 }
+.selected {
+  background: #e8ebeb;
+}
 .wrapper-whatsapp .col-left .box-contacts .contact p {
   color: #b1b1b1;
 }
@@ -168,7 +171,7 @@ div[class*="-bar"] img {
   height: 100%;
   width: calc(100% - 350px);
 }
-.wrapper-whatsapp .col-right .img-avatar .ultimo-accesso {
+.wrapper-whatsapp .col-right .box-avatar .last-access {
   padding: 10px;
   font-size: 12px;
 }
@@ -183,11 +186,7 @@ div[class*="-bar"] img {
 .wrapper-whatsapp .col-right .container-message.active {
   display: block;
 }
-/* .wrapper-whatsapp .col-right .container-message .wrapper-message {
-  width: 85%;
-  margin: auto;
-  height: 100%;
-} */
+
 /* message */
 div[class*="message-"] div[class*="box-"] {
   position: relative;
@@ -217,7 +216,7 @@ div[class*="message-"] {
   left: 10px;
 }
 .settings-message {
-  display: none; /* <<<<<<------Serve per debug */
+  display: none;
   font-size: 12px;
   top: 25px;
   position: absolute;
@@ -232,6 +231,7 @@ div[class*="message-"] {
   display: block;
 }
 .icon-settings-message {
+  cursor: pointer;
   position: absolute;
   top: 5px;
 }
