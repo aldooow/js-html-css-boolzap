@@ -26,7 +26,7 @@ $(document).ready(
             // e agli altri viene tolta la class SELECTED(cambio colore).
             $(this).addClass('selected').siblings().removeClass('selected');
 
-            $('.lama').addClass('hidden')
+            $(this).find('.lama').addClass('hidden')
 
        // --> Su tutti CONTACT viene tolta la class ACTIVE(display: block);
             var contact = $(this).attr('src');
@@ -94,7 +94,10 @@ $(document).ready(
       function(event){
         if(event.which=='13'){
           sendMessage();
-          replyMessage();
+          setTimeout(function(){
+            replyMessage();
+          }, 1000);
+
         }
        });
 
@@ -133,6 +136,7 @@ $(document).ready(
      function replyMessage(){
         // Mentre aspetta il messaggio di risposta far vedre nella HEADER CONTACT BAR un messaggio..
         $('.header-contact-bar').find('.last-access p').text('sta scrivendo un messagio...');
+        $('.contact.selected').find('.box-contact p').text('sta scrivendo un messagio...');
 
        setTimeout(function(){
          /* Risposte Automatiche */
