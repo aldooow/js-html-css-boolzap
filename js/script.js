@@ -26,6 +26,8 @@ $(document).ready(
             // e agli altri viene tolta la class SELECTED(cambio colore).
             $(this).addClass('selected').siblings().removeClass('selected');
 
+            $('.lama').addClass('hidden')
+
        // --> Su tutti CONTACT viene tolta la class ACTIVE(display: block);
             var contact = $(this).attr('src');
             $('.container-message').removeClass('active');
@@ -110,7 +112,7 @@ $(document).ready(
        var currentMinutes = date.getMinutes();
        var currentTime = addZeroToNumber(currentHours) + ':' + addZeroToNumber(currentMinutes);
        // Aggiungo a MESSAGE HOUR il testo di CURRENT-TIME.
-       template.find('.message-hour').text(currentTime);
+       template.find('.message-hour').html(currentTime + ' <i class="fas fa-check"></i>');
        // Aggiunto a MESSAGE SEND il MESSAGE.
        template.find('.js_message-send').text(message);
        // Append il TEMPLATE sul CONTAINER MESSAGE si ha la class ACTIVE.
@@ -124,7 +126,6 @@ $(document).ready(
        // L'orario e il testo  del TIME CONTACT si vedono anche nel BOX CONTACT.
        $('.contact.selected').find('.time-contact p').text(currentTime);
        $('.contact.selected').find('.box-contact p').html('<i class="fas fa-check"></i> ' + message);
-
 
      }
 
@@ -172,7 +173,7 @@ $(document).ready(
          $('.contact.selected').find('.time-contact p').text(currentTime);
          $('.contact.selected').find('.box-contact p').text(messagesReceived[numeroRandon]);
 
-       }, 1000);
+       }, 1500);
      }
 
      // FUNCTION: creaNumeroRandom(): Questa Funzione crea un numero random tenendo in considerazione come range max, la larghezza del array inserito.

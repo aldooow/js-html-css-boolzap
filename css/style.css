@@ -296,4 +296,14 @@ div[class*="message-"] {
 .fas.fa-check {
   color: blue;
 }
+
+.lama {
+  border-radius: 100%;
+  padding: 5px 9px;
+  background: #03d755;
+  color: #ffff;
+}
+.hidden {
+  display: none;
+}
 /************ END COLONNA DESTRA **************/
