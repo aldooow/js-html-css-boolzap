@@ -19,14 +19,14 @@ $(document).ready(
 
     // FINESTRA CONTATTI.
     // Quando faccio CLICK su un CONTACT, si apri il CONTAINER MESSAGE.
-    $('.box-contacts .contact').click(
+    $('.wrapper-contacts .contact').click(
           function() {
 
         // --> Il BOX del CONTACT clickato, viene aggiunta la class SELECTED(cambio colore),
             // e agli altri viene tolta la class SELECTED(cambio colore).
             $(this).addClass('selected').siblings().removeClass('selected');
-
-            $(this).find('.lama').addClass('hidden')
+            // Nel caso ci fossero notifiche nel BOX CONTACT, dopo il CLICK, si aggiunge la class HIDDEN.
+            $(this).find('.notifications-message-contact').addClass('hidden')
 
        // --> Su tutti CONTACT viene tolta la class ACTIVE(display: block);
             var contact = $(this).attr('src');
@@ -73,7 +73,7 @@ $(document).ready(
     });
 
     // MESSAGE.
-    //  Quando faccio CLICK sulla INPUT si vede il bottone INVIA e sparisce la VOICE.
+    //  Quando faccio CLICK sulla INPUT si vede la ICONA INVIA e sparisce la ICONA VOICE.
     $('.write-message input').click( function(){
       $('#js_enter').removeClass('hidden');
       $('#js_voice').addClass('hidden');
@@ -83,17 +83,23 @@ $(document).ready(
     $('#js_enter').click(
       function(){
         sendMessage();
-        replyMessage();
+        // Ho aggiunto un SET TIME OUT, din un secondo, per far vedere nel BOX CONTACT
+        // a sinistra, i messagi del area messagi prima che venga fuori la scriva "sta scrivendo un  messaggio".
+        setTimeout(function(){
+          replyMessage();
+        }, 1000);
         // RESET:: Quando invio il messagio sparisce il bottone INVIA e torna la VOICE.
         $('#js_enter').addClass('hidden');
         $('#js_voice').removeClass('hidden');
       });
 
-    // Quando il tasto si abbassa appende 'INPUT' nel area dei messaggi.
+    // Quando faccio KEYDOWN, si appende 'INPUT' nel area dei messaggi.
     $('.write-message input').keydown(
       function(event){
         if(event.which=='13'){
           sendMessage();
+          // Ho aggiunto un SET TIME OUT, din un secondo, per far vedere nel BOX CONTACT
+          // a sinistra, i messagi del area messagi prima che venga fuori la scriva "sta scrivendo un  messaggio".
           setTimeout(function(){
             replyMessage();
           }, 1000);
@@ -108,14 +114,14 @@ $(document).ready(
 
        var message = $('.write-message input').val();
        var template = $('.template').find('.message-right').clone();
-
+       var checkMessage = ' <i class="check fas fa-check"></i> ';
        // Inserire Ora.
        var date = new Date();
        var currentHours = date.getHours();
        var currentMinutes = date.getMinutes();
        var currentTime = addZeroToNumber(currentHours) + ':' + addZeroToNumber(currentMinutes);
        // Aggiungo a MESSAGE HOUR il testo di CURRENT-TIME.
-       template.find('.message-hour').html(currentTime + ' <i class="fas fa-check"></i>');
+       template.find('.message-hour').html(currentTime + checkMessage);
        // Aggiunto a MESSAGE SEND il MESSAGE.
        template.find('.js_message-send').text(message);
        // Append il TEMPLATE sul CONTAINER MESSAGE si ha la class ACTIVE.
@@ -128,7 +134,7 @@ $(document).ready(
 
        // L'orario e il testo  del TIME CONTACT si vedono anche nel BOX CONTACT.
        $('.contact.selected').find('.time-contact p').text(currentTime);
-       $('.contact.selected').find('.box-contact p').html('<i class="fas fa-check"></i> ' + message);
+       $('.contact.selected').find('.box-contact p').html(checkMessage + message);
 
      }
 
@@ -149,7 +155,11 @@ $(document).ready(
            'Raccontami qualcosa.',
            'Vieni a casa!!',
            'Ci vediamo domani',
-           'Sicuro???'
+           'Sicuro???',
+           'devo salutarti',
+           'Tutto è cambiato',
+           'devo portare il cane fuori',
+           'volendo domani possiamo uscire'
          ];
 
          var numeroRandon = creaNumeroRandom(messagesReceived);
