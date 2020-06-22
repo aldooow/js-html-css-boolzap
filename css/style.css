@@ -68,7 +68,7 @@ div[class*="-bar"] img {
   background: yellow;
   display: flex;
   height: 95vh;
-  width: 1024px;
+  width: 85%;
   min-width: 900px;
   margin: 2.5vh auto;
 }

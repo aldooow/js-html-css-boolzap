@@ -7,8 +7,9 @@ $(document).ready(
     // Quando faccio CLICK sulla icona sui messagi, faccio apparire una finestra con delle opzioni.
     $(document).on('click', '.icon-settings-message',
       function(){
+        $('.settings-message').removeClass('active');
         $(this).parents().siblings('.settings-message').toggleClass('active');
-        $(this).parents().parents().siblings().find('.settings-message').removeClass('active')
+
         // Quando faccio CLICK sulla opzione DELETE, cancello il messaggio.
         $('.js_delete-message').click(
           function(){
