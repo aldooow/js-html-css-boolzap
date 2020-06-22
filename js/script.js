@@ -109,7 +109,7 @@ $(document).ready(
 
      /*FUNZIONI*/
 
-   //  FUNCTION: sendMessage(): Questa funzione contiene il messaggio da inviare, e l'ora del messagio. C'e anche  una risposta automatica.
+   //  FUNCTION: sendMessage(): Questa funzione contiene il messaggio da inviare, e l'ora del messagio.
      function sendMessage(){
 
        var message = $('.write-message input').val();
@@ -138,7 +138,7 @@ $(document).ready(
 
      }
 
-     //  FUNCTION: replyMessage(): Questa funzione genera una risposta automatica dopo 1 sec.
+     //  FUNCTION: replyMessage(): Questa funzione genera una risposta automatica dopo 1.5 sec.
      function replyMessage(){
         // Mentre aspetta il messaggio di risposta far vedre nella HEADER CONTACT BAR un messaggio..
         $('.header-contact-bar').find('.last-access p').text('sta scrivendo un messagio...');
@@ -171,7 +171,7 @@ $(document).ready(
          var currentMinutes = date.getMinutes();
          var currentTime = addZeroToNumber(currentHours) + ':' + addZeroToNumber(currentMinutes);
          // Aggiungo a MESSAGE HOUR il testo di CURRENT-TIME.
-         template.find('.message-hour').text(currentTime);
+         template.find('.box-left .message-hour').text(currentTime);
          // Aggiungo a MESSAGE RECEIVED il testo del "Risposte Automatiche".
          template.find('.js_message-received').text(messagesReceived[numeroRandon]);
          // Append il TEMPLATE sul CONTAINER MESSAGE si ha la class ACTIVE.
