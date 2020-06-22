@@ -217,6 +217,9 @@ div[class*="message-"] {
   clear: both;
   max-width: 80%;
 }
+div[class*="message-"]:hover .icon-settings-message {
+  color: #b1b1b1;
+}
 .message-left .settings-message {
   right: -90px;
 }
@@ -251,9 +254,9 @@ div[class*="message-"] {
   position: absolute;
   top: 5px;
 }
-.icon-settings-message:hover {
+/* .icon-settings-message:hover {
   color: #b1b1b1;
-}
+} */
 .js_delete-message a {
   color: black;
   text-decoration: none;
